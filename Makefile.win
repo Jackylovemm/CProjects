@@ -1,0 +1,40 @@
+# Project: CDesign
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = File.o View.o OP.o Main.o Struct.o
+LINKOBJ  = File.o View.o OP.o Main.o Struct.o
+LIBS     = -L"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/lib" -L"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -lgraphics64 -luuid -lmsimg32 -lgdi32 -limm32 -lole32 -loleaut32
+INCS     = -I"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/include" -I"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/include" -I"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/Administrator/Desktop/StudyingFile/C”Ô—‘/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = CDesign.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+File.o: File.cpp
+	$(CPP) -c File.cpp -o File.o $(CXXFLAGS)
+
+View.o: View.cpp
+	$(CPP) -c View.cpp -o View.o $(CXXFLAGS)
+
+OP.o: OP.cpp
+	$(CPP) -c OP.cpp -o OP.o $(CXXFLAGS)
+
+Main.o: Main.cpp
+	$(CPP) -c Main.cpp -o Main.o $(CXXFLAGS)
+
+Struct.o: Struct.cpp
+	$(CPP) -c Struct.cpp -o Struct.o $(CXXFLAGS)
